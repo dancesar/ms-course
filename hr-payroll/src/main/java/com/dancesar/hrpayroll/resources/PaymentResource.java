@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentResource {
 
     @Autowired
-    private PaymentService service;
+    private PaymentService paymentService;
 
     @GetMapping(value = "/{workerId}/days/{days}")
     public ResponseEntity<Payment> getPayment(@PathVariable Long workerId, @PathVariable Integer days){
-        Payment payment = service.getPayment(workerId, days);
+        Payment payment = paymentService.getPayment(workerId, days);
         return ResponseEntity.ok(payment);
     }
 }
